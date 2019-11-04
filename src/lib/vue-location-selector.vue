@@ -1,7 +1,7 @@
 <template>
     <div id="d_map">
         <img class="corss-img" src="./images/cross.png">
-        <span id="s_address">{{location.address}}</span>
+        <span id="s_address">{{result.address}}</span>
     </div>
 </template>
 
@@ -54,6 +54,11 @@ export default {
     data(){
         return{
             map:null,
+            result:{
+                address:'',
+                lat:null,
+                lng:null
+            }
         }
     },
     mounted(){
@@ -81,26 +86,25 @@ export default {
             }
             let url = "https://restapi.amap.com/v3/geocode/regeo?location="+gcjLng+","+gcjLat+"&key=" + this.amapKey;
 
-            const result = {address:'', lat:null, lng:null}
              if(this.basemap == "tianditu")
             {
                 let wgsLatLng = gcj2wgs(gcjLat,gcjLng);
-                result.lng = wgsLatLng.lng;
-                result.lat = wgsLatLng.lat;
+                this.result.lng = wgsLatLng.lng;
+                this.result.lat = wgsLatLng.lat;
             }
             else
             {
-                result.lng = center.lng;
-                result.lat = center.lat;
+                this.result.lng = center.lng;
+                this.result.lat = center.lat;
             }
             
             axios.get(url).then(res=>{
-                result.address = res.data.regeocode.formatted_address;
+                this.result.address = res.data.regeocode.formatted_address;
                 console.log(res.data);
-                this.$emit('change', result)
+                this.$emit('change', this.result)
             }).catch(error => {
                 console.error('fetch the address defeat:%o', error)
-                this.$emit('change', result) // 反求地址失败，依旧返回经纬度
+                this.$emit('change', this.result) // 反求地址失败，依旧返回经纬度
             })
         },
     }
@@ -127,8 +131,8 @@ export default {
 .corss-img
 {
     position: absolute;
-    top:calc(50vh - 24px);
-    left: calc(50vw - 24px);
+    top:calc(50% - 24px);
+    left: calc(50% - 24px);
     height: 48px;
     width: 48px;
     z-index: 9999;
