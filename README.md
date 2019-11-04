@@ -11,9 +11,9 @@ npm install git@git.ljnewmap.cn:CC/vue-location-selector.git --save
 ```
 
 2. in main.js
+
 ```js
 import locationSelector from 'vue-location-selector/lib'
-
 Vue.use(locationSelector)
 ```
 
@@ -21,6 +21,16 @@ Vue.use(locationSelector)
 
 ```html
 <location-selector basemap="tianditu" v-model="location" amapKey="$amapKEY"/>
+```
+
+The location result will be returned by the variable "location" which you bind.The data structure look like beblow.
+
+```js
+{
+  address: '浙江省宁波市宁海县茶院乡科技路',
+  lat: 29.28025612868752,
+  lng: 29.28025612868752
+}
 ```
 
 ## Props
@@ -33,6 +43,7 @@ initLat |Number | - | the latitude of the center in the inited map
 amapKey |String | - | 高德底图WEBAPIKEY，用于地理反编码，需要自行申请
 
 ## Demo
+
 ![demo][1]
 
 ## Contributors
