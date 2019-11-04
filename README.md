@@ -7,13 +7,13 @@
 ### 1. install
 
 ```shell
-npm install git@git.ljnewmap.cn:CC/vue-location-selector.git --save
+npm install git+https://git@git.ljnewmap.cn:CC/vue-location-selector.git --save
 ```
 
 ### 2. in main.js
 
 ```js
-import locationSelector from 'vue-location-selector/lib'
+import locationSelector from 'vue-location-selector'
 Vue.use(locationSelector)
 ```
 

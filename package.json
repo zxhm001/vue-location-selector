@@ -15,6 +15,7 @@
     "leaflet.chinatmsproviders": "^2.0.3",
     "vue": "^2.5.11"
   },
+  "main": "src/lib/index.js",
   "browserslist": [
     "> 1%",
     "last 2 versions",
