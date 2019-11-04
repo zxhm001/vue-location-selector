@@ -4,20 +4,20 @@
 
 ## Usage
 
-1. install
+### 1. install
 
 ```shell
 npm install git@git.ljnewmap.cn:CC/vue-location-selector.git --save
 ```
 
-2. in main.js
+### 2. in main.js
 
 ```js
 import locationSelector from 'vue-location-selector/lib'
 Vue.use(locationSelector)
 ```
 
-3. in .vue
+### 3. in .vue
 
 ```html
 <location-selector basemap="tianditu" v-model="location" amapKey="$amapKEY"/>
@@ -59,4 +59,4 @@ Contact with the author "zxh" and the maintainer "dicl" to get the permission.
 
 MIT
 
-[1]: ./example/images/demo.jpg "demo look"
+[1]: ./example/images/demo.jpg "have a look of demo"
