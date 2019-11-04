@@ -34,7 +34,7 @@ Vue.use(locationSelector)
 </script>
 ```
 
-The location result will be returned by the variable "location" which you bind.The data structure look like beblow.
+The location result in param of the callback bind to change event looks like beblow when "change" event fired.
 
 ```js
 {
@@ -56,6 +56,7 @@ amapKey |String | - | 高德底图WEBAPIKEY，用于地理反编码，需要自�
 ## Events
 
 event name  | event value             | description
+:---|:---|:---
 change      |Object,{address,lat,lng} | the result of the choosen position
 
 ## Demo
