@@ -1,7 +1,7 @@
 {
   "name": "vue-location-selector",
   "description": "A Vue plugin to select location on map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "ZXHM <zxhm001@126.com>",
   "license": "MIT",
   "private": true,
