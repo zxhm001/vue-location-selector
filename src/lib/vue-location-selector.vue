@@ -48,7 +48,7 @@ export default {
         }
     },
     model: {        
-        prop: 'location',        
+        prop: 'location',
         event: 'change'    
     },
     data(){

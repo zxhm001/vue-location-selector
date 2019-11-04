@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <LocationSelector basemap="tianditu" v-model="location" amapKey="cd478721dd024af8b182361833236ea9"/>
+    <location-selector basemap="tianditu" v-model="location" amapKey="cd478721dd024af8b182361833236ea9"/>
   </div>
 </template>
 
@@ -14,6 +14,14 @@ export default {
         lat:0,
         address:""
       }
+    }
+  },
+  watch:{
+    location:{
+      handler:function(nv){
+        console.warn('the curren position', nv)
+      },
+      deep:true
     }
   }
 }
