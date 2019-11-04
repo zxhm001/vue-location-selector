@@ -54,7 +54,6 @@ export default {
     data(){
         return{
             map:null,
-            
         }
     },
     mounted(){
@@ -81,23 +80,29 @@ export default {
                gcjLng = gcjLatLng.lng;
             }
             let url = "https://restapi.amap.com/v3/geocode/regeo?location="+gcjLng+","+gcjLat+"&key=" + this.amapKey;
-            axios.get(url).then(res=>{
-                this.location.address = res.data.regeocode.formatted_address;
-                console.log(res.data);
-            });
-            if(this.basemap == "tianditu")
+
+            const result = {address:'', lat:null, lng:null}
+             if(this.basemap == "tianditu")
             {
                 let wgsLatLng = gcj2wgs(gcjLat,gcjLng);
-                this.location.lng = wgsLatLng.lng;
-                this.location.lat = wgsLatLng.lat;
+                result.lng = wgsLatLng.lng;
+                result.lat = wgsLatLng.lat;
             }
             else
             {
-                this.location.lng = center.lng;
-                this.location.lat = center.lat;
+                result.lng = center.lng;
+                result.lat = center.lat;
             }
+            
+            axios.get(url).then(res=>{
+                result.address = res.data.regeocode.formatted_address;
+                console.log(res.data);
+                this.$emit('change', result)
+            }).catch(error => {
+                console.error('fetch the address defeat:%o', error)
+                this.$emit('change', result) // 反求地址失败，依旧返回经纬度
+            })
         },
-
     }
 }
 </script>
