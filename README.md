@@ -20,7 +20,18 @@ Vue.use(locationSelector)
 ### 3. in .vue
 
 ```html
-<location-selector basemap="tianditu" v-model="location" amapKey="$amapKEY"/>
+<location-selector basemap="tianditu" @change="handleChange" amapKey="$amapKEY"/>
+<script>
+  export default {
+    ...
+    methods:{
+      handleChange(position){
+        console.log('position:', position)
+      }
+    }
+    ...
+  }
+</script>
 ```
 
 The location result will be returned by the variable "location" which you bind.The data structure look like beblow.
@@ -41,6 +52,11 @@ basemap |String |tianditu,amap|the type of the base map
 initLng |Number | - | the langitude of the center in the inited map
 initLat |Number | - | the latitude of the center in the inited map
 amapKey |String | - | 高德底图WEBAPIKEY，用于地理反编码，需要自行申请
+
+## Events
+
+event name  | event value             | description
+change      |Object,{address,lat,lng} | the result of the choosen position
 
 ## Demo
 
