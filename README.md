@@ -7,7 +7,7 @@
 ### 1. install
 
 ```shell
-npm install git+https://git@git.ljnewmap.cn:CC/vue-location-selector.git --save
+npm install git+https://github.com/zxhm001/vue-location-selector.git --save
 ```
 
 ### 2. in main.js
