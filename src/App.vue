@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <location-selector basemap="tianditu" v-model="location" amapKey="cd478721dd024af8b182361833236ea9"/>
+    <location-selector basemap="tianditu" v-model="location" amapKey="$amapKEY"/>
   </div>
 </template>
 

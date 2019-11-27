@@ -65,8 +65,8 @@ change      |Object,{address,lat,lng} | the result of the choosen position
 
 ## Contributors
 
-- zxh
-- dicl
+- ZXHM
+- [dicl](https://github.com/DiclZYY)
 
 How to contribute?
 
